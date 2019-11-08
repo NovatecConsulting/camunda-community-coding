@@ -5,6 +5,7 @@ import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareAssertions.as
 import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.complete;
 import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.task;
 import static org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests.withVariables;
+import static org.mockito.Mockito.mock;
 
 import javax.annotation.PostConstruct;
 
@@ -20,10 +21,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import info.novatec.bpm.camunda_test_spring_boot.delegates.SomethingDoer;
 import info.novatec.bpm.camunda_test_spring_boot.delegates.SomethingElseDoer;
@@ -31,8 +31,8 @@ import info.novatec.bpm.camunda_test_spring_boot.delegates.SomethingElseDoer;
 /**
  * Test case starting an in-memory database-backed Process Engine.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.NONE)
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {InMemProcessEngineConfiguration.class, ProcessTest.BeanConfig.class})
 public class ProcessTest {
 
     private static final String PROCESS_DEFINITION_KEY = "camunda-test-spring-boot";
@@ -40,13 +40,13 @@ public class ProcessTest {
     @Autowired
     private ProcessEngine processEngine;
 
-    @MockBean
-    private SomethingElseDoer somethingElseDoer;
-
-    @MockBean
-    private SomethingDoer somethingDoer;
-
     RuntimeService runtimeService;
+
+    @Autowired
+    SomethingDoer somethingDoer;
+
+    @Autowired
+    SomethingElseDoer somethingElseDoer;
 
     @Rule
     @ClassRule
@@ -61,6 +61,19 @@ public class ProcessTest {
     public void setup() {
         init(processEngine);
         this.runtimeService = rule.getRuntimeService();
+    }
+
+    private static class BeanConfig {
+
+        @Bean
+        SomethingDoer somethingDoer() {
+            return mock(SomethingDoer.class);
+        }
+
+        @Bean
+        SomethingElseDoer somethingElseDoer() {
+            return mock(SomethingElseDoer.class);
+        }
     }
 
     @Test
