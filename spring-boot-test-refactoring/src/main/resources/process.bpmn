@@ -15,14 +15,14 @@
     </bpmn:userTask>
     <bpmn:exclusiveGateway id="ExclusiveGateway_0z6s4ap" name="Haken gesetzt?">
       <bpmn:incoming>SequenceFlow_0qtcoxn</bpmn:incoming>
-      <bpmn:outgoing>SequenceFlow_1wfnxcy</bpmn:outgoing>
       <bpmn:outgoing>SequenceFlow_0mi3b1k</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1wfnxcy</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="SequenceFlow_1wfnxcy" name="ja" sourceRef="ExclusiveGateway_0z6s4ap" targetRef="ServiceTask1">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${input == 1}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="SequenceFlow_17in089" sourceRef="ServiceTask1" targetRef="EndEvent" />
     <bpmn:serviceTask id="ServiceTask1" name="do something automatically" camunda:delegateExpression="${somethingDoer}">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${myListener}" event="start" />
+      </bpmn:extensionElements>
       <bpmn:incoming>SequenceFlow_1wfnxcy</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_17in089</bpmn:outgoing>
     </bpmn:serviceTask>
@@ -37,6 +37,9 @@
       <bpmn:incoming>SequenceFlow_0b9jbn3</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0b9jbn3" sourceRef="ServiceTask2" targetRef="EndEvent_13ww7z4" />
+    <bpmn:sequenceFlow id="SequenceFlow_1wfnxcy" name="ja" sourceRef="ExclusiveGateway_0z6s4ap" targetRef="ServiceTask1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${input == 1}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="camunda-test-spring-boot">
@@ -72,13 +75,6 @@
           <dc:Bounds x="442" y="71" width="77" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="SequenceFlow_1wfnxcy_di" bpmnElement="SequenceFlow_1wfnxcy">
-        <di:waypoint x="506" y="120" />
-        <di:waypoint x="582" y="120" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="540" y="102" width="8" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="SequenceFlow_17in089_di" bpmnElement="SequenceFlow_17in089">
         <di:waypoint x="682" y="120" />
         <di:waypoint x="789" y="120" />
@@ -106,6 +102,13 @@
       <bpmndi:BPMNEdge id="SequenceFlow_0b9jbn3_di" bpmnElement="SequenceFlow_0b9jbn3">
         <di:waypoint x="682" y="262" />
         <di:waypoint x="789" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wfnxcy_di" bpmnElement="SequenceFlow_1wfnxcy">
+        <di:waypoint x="506" y="120" />
+        <di:waypoint x="582" y="120" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="540" y="102" width="9" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

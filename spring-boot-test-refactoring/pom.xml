@@ -60,11 +60,11 @@
       <artifactId>h2</artifactId>
     </dependency>
 
-    <!-- required to use H2 as a file based database  (Otherwise it's In-Memory) -->
+    <!-- required to use H2 as a file based database  (Otherwise it's In-Memory) 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -98,6 +98,15 @@
       <version>0.3.2</version>
       <scope>test</scope>
     </dependency>
+    
+    
+		<!-- Camunda mocking framework -->
+		<dependency>
+			<groupId>org.camunda.bpm.extension.mockito</groupId>
+			<artifactId>camunda-bpm-mockito</artifactId>
+			<version>4.9.0</version>
+			<scope>test</scope>
+		</dependency>
 
     <!-- java util logging => slf4j -->
     <dependency>
