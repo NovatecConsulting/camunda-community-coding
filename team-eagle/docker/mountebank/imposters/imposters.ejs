@@ -1,0 +1,34 @@
+{
+  "imposters": [
+    {
+      "port": 1000,
+      "protocol": "http",
+      "name": "Test",
+      "stubs": [
+        {
+          "predicates": [
+            {
+              "equals": {
+                "method": "GET",
+                "path": "/test"
+              }
+            }
+          ],
+          "responses": [
+            {
+              "is": {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "message": "success"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
