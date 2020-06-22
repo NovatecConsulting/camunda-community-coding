@@ -1,0 +1,216 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mein dashboard",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "UebersichtIntent",
+          "slots": [],
+          "samples": [
+            "gib mir einen überblick",
+            "übersicht",
+            "uebersicht",
+            "überblick",
+            "ueberblick",
+            "gib mir eine übersicht"
+          ]
+        },
+        {
+          "name": "OffeneTasksGruppeIntent",
+          "slots": [
+            {
+              "name": "gruppe",
+              "type": "GRUPPE",
+              "samples": [
+                "service",
+                "küche"
+              ]
+            }
+          ],
+          "samples": [
+            "tasks für {gruppe}",
+            "wieviele offene tasks für {gruppe}",
+            "aufgaben für {gruppe}",
+            "wie viele offene aufgaben hat {gruppe}",
+            "wie viele offene aufgaben hat gruppe {gruppe}"
+          ]
+        },
+        {
+          "name": "AnzahlInstanzenHeuteIntent",
+          "slots": [
+            {
+              "name": "prozess",
+              "type": "PROZESS",
+              "samples": [
+                "zimmerservice"
+              ]
+            }
+          ],
+          "samples": [
+            "wie oft wurde {prozess} heute gestartet",
+            "wie oft wurde heute {prozess} gerufen",
+            "wie oft wurde heute der {prozess} gestartet",
+            "wie oft wurde heute der {prozess} gerufen"
+          ]
+        },
+        {
+          "name": "OffeneTasksProzessIntent",
+          "slots": [
+            {
+              "name": "prozess",
+              "type": "PROZESS",
+              "samples": [
+                "zimmerservice"
+              ]
+            }
+          ],
+          "samples": [
+            "aufgaben bei {prozess}",
+            "tasks bei {prozess}",
+            "wie viele offene aufgaben gibt es bei {prozess}",
+            "wie viele offene tasks gibt es bei {prozess}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "service"
+              }
+            },
+            {
+              "name": {
+                "value": "kitchen",
+                "synonyms": [
+                  "koch",
+                  "küche"
+                ]
+              }
+            }
+          ],
+          "name": "GRUPPE"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "zimmerservice"
+              }
+            }
+          ],
+          "name": "PROZESS"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "OffeneTasksGruppeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "gruppe",
+              "type": "GRUPPE",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.371524777941.15684445780"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AnzahlInstanzenHeuteIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "prozess",
+              "type": "PROZESS",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1386734368667.1055317804147"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OffeneTasksProzessIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "prozess",
+              "type": "PROZESS",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.892421098366.239316395596"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.371524777941.15684445780",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "welche gruppe"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1386734368667.1055317804147",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "welchen prozess meinst du?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.892421098366.239316395596",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "welchen prozess meinst du?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.811262824015.1074505378736",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "welchen prozess meinst du?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "11"
+}

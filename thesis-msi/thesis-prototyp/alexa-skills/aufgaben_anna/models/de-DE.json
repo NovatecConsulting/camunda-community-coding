@@ -1,0 +1,278 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "aufgaben anna",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AufgabeAbschlussIntent",
+          "slots": [
+            {
+              "name": "direkt",
+              "type": "BARZAHLUNG"
+            }
+          ],
+          "samples": [
+            "fertig",
+            "bin fertig",
+            "ich bin fertig",
+            "aufgabe fertig",
+            "abschluss",
+            "ich möchte die aufgabe abschließen",
+            "ist erledigt",
+            "erledigt",
+            "die aufgabe ist fertig",
+            "ich bin fertig",
+            "aufgabe ist abgeschlossen",
+            "habe die aufgabe abgeschlossen",
+            "ich habe die aufgabe abgeschlossen",
+            "fertig. nächste aufgabe bitte"
+          ]
+        },
+        {
+          "name": "AufgabeDetailsIntent",
+          "slots": [],
+          "samples": [
+            "meine aufgabe",
+            "was ist meine aufgabe",
+            "details",
+            "welche aufgaben habe ich",
+            "was sind meine aufgaben",
+            "welche aufgaben sind mir zugeordnet",
+            "was muss ich tun",
+            "was muss ich machen",
+            "was ist zu tun"
+          ]
+        },
+        {
+          "name": "AufgabeVorIntent",
+          "slots": [],
+          "samples": [
+            "diese aufgabe überspringen",
+            "die aufgabe überspringen",
+            "aufgabe überspringen",
+            "überspringen",
+            "nächste",
+            "vor"
+          ]
+        },
+        {
+          "name": "AufgabeZurueckIntent",
+          "slots": [],
+          "samples": [
+            "vorherige",
+            "zurück"
+          ]
+        },
+        {
+          "name": "AufgabeFreigebenIntent",
+          "slots": [],
+          "samples": [
+            "diese aufgabe freigeben",
+            "meine aufgabe freigeben",
+            "freigeben"
+          ]
+        },
+        {
+          "name": "AufgabeUebergabeIntent",
+          "slots": [
+            {
+              "name": "person",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "julian",
+                "felix",
+                "anna"
+              ]
+            }
+          ],
+          "samples": [
+            "übergebe an {person}",
+            "übergebe meine aufgabe an {person}",
+            "abgeben",
+            "an {person} abgeben",
+            "weitergeben"
+          ]
+        },
+        {
+          "name": "ZahlungSofortIntent",
+          "slots": [],
+          "samples": [
+            "der kunde hat sofort bezahlt",
+            "der kunde hat direkt bezahlt",
+            "der gast hat sofort bezahlt",
+            "der gast hat direkt bezahlt"
+          ]
+        },
+        {
+          "name": "ZahlungSpaeterIntent",
+          "slots": [],
+          "samples": [
+            "der kunde möchte es auf die rechnung setzen",
+            "der kunde zahlt später",
+            "der gast zahlt später",
+            "der gast möchte es auf die rechnung setzen",
+            "auf die rechnung setzen"
+          ]
+        },
+        {
+          "name": "WagenVorbereitenIntent",
+          "slots": [],
+          "samples": [
+            "ich habe den wagen vorbereitet",
+            "wagen ist vorbereitet",
+            "service-wagen ist vorbereitet",
+            "ist vorbereitet"
+          ]
+        },
+        {
+          "name": "ServierenIntent",
+          "slots": [
+            {
+              "name": "direkt",
+              "type": "BARZAHLUNG"
+            }
+          ],
+          "samples": [
+            "ich habe die bestellung serviert",
+            "die bestellung ist serviert",
+            "der kunde hat seine bestellung erhalten",
+            "serviert",
+            "geliefert",
+            "bestellung geliefert",
+            "zum zimmer gebracht",
+            "aufs zimmer gebracht",
+            "ich habe es zum zimmer gebracht",
+            "ich habe es aufs zimmer gebracht",
+            "an gast übergeben",
+            "bestellung an gast übergeben",
+            "der gast hat sein essen",
+            "der kunde hat sein essen"
+          ]
+        },
+        {
+          "name": "BestellungZubereitenIntent",
+          "slots": [],
+          "samples": [
+            "bestellung zubereitet",
+            "die bestellung ist zubereitet",
+            "die bestellung ist vorbereitet",
+            "die bestellung ist fertig"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "true"
+              }
+            }
+          ],
+          "name": "BARZAHLUNG"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "AufgabeAbschlussIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.254538358782"
+          },
+          "slots": [
+            {
+              "name": "direkt",
+              "type": "BARZAHLUNG",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "delegationStrategy": "SKILL_RESPONSE"
+        },
+        {
+          "name": "ServierenIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.254538358782-2"
+          },
+          "slots": [
+            {
+              "name": "direkt",
+              "type": "BARZAHLUNG",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ],
+          "delegationStrategy": "SKILL_RESPONSE"
+        },
+        {
+          "name": "AufgabeUebergabeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "person",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1061471592057.976619667534"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.254538358782",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "aufgabe jetzt abschließen?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.254538358782-2",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "aufgabe jetzt abschließen?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1061471592057.976619667534",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "du kannst die aufgabe an julian oder felix übergeben. an wen möchtest du die aufgabe übergeben?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "57"
+}

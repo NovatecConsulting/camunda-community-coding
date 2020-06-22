@@ -1,0 +1,423 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "meine bestellung",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "was kann ich bestellen",
+            "was steht zur auswahl",
+            "auswahl"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "BestellungIntent",
+          "slots": [
+            {
+              "name": "gericht",
+              "type": "GERICHT",
+              "samples": [
+                "{gericht}",
+                "ich möchte {gericht} essen",
+                "{gericht} bitte"
+              ]
+            },
+            {
+              "name": "getraenk",
+              "type": "GETRAENK",
+              "samples": [
+                "{getraenk}",
+                "ich möchte {getraenk} trinken",
+                "{getraenk} bitte"
+                
+              ]
+            },
+            {
+              "name": "zimmernummer",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "zu zimmernummer {zimmernummer}",
+                "zimmernummer {zimmernummer}",
+                "zu zimmer {zimmernummer}",
+                "zimmer {zimmernummer}",
+                "{zimmernummer}"
+              ]
+            }
+          ],
+          "samples": [
+            "ich möchte {gericht} essen",
+            "ich möchte {getraenk} trinken",
+            "{zimmernummer}",
+            "{getraenk}",
+            "{gericht}",
+            "Ich möchte {gericht} und {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich möchte {gericht} und {getraenk} für Zimmer {zimmernummer}",
+            "Ich möchte {gericht} und {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich möchte {gericht} und {getraenk} für Raum {zimmernummer}",
+            "Ich möchte {gericht} und {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich möchte {gericht} und {getraenk} auf Zimmer {zimmernummer}",
+            "Ich möchte {gericht} und {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich möchte {gericht} und {getraenk} auf Raum {zimmernummer}",
+            "Ich will {gericht} und {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich will {gericht} und {getraenk} für Zimmer {zimmernummer}",
+            "Ich will {gericht} und {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich will {gericht} und {getraenk} für Raum {zimmernummer}",
+            "Ich will {gericht} und {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich will {gericht} und {getraenk} auf Zimmer {zimmernummer}",
+            "Ich will {gericht} und {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich will {gericht} und {getraenk} auf Raum {zimmernummer}",
+            "Ich mag {gericht} und {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich mag {gericht} und {getraenk} für Zimmer {zimmernummer}",
+            "Ich mag {gericht} und {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich mag {gericht} und {getraenk} für Raum {zimmernummer}",
+            "Ich mag {gericht} und {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich mag {gericht} und {getraenk} auf Zimmer {zimmernummer}",
+            "Ich mag {gericht} und {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich mag {gericht} und {getraenk} auf Raum {zimmernummer}",
+            "Ich hätte gerne {gericht} und {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} und {getraenk} für Zimmer {zimmernummer}",
+            "Ich hätte gerne {gericht} und {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} und {getraenk} für Raum {zimmernummer}",
+            "Ich hätte gerne {gericht} und {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} und {getraenk} auf Zimmer {zimmernummer}",
+            "Ich hätte gerne {gericht} und {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} und {getraenk} auf Raum {zimmernummer}",
+            "Ich möchte {gericht} bestellen",
+            "Ich möchte {gericht}",
+            "Ich möchte {getraenk} bestellen",
+            "Ich möchte {getraenk}",
+            "Ich will {gericht} bestellen",
+            "Ich will {gericht}",
+            "Ich will {getraenk} bestellen",
+            "Ich will {getraenk}",
+            "Ich mag {gericht} bestellen",
+            "Ich mag {gericht}",
+            "Ich mag {getraenk} bestellen",
+            "Ich mag {getraenk}",
+            "Ich hätte gerne {gericht} bestellen",
+            "Ich hätte gerne {gericht}",
+            "Ich hätte gerne {getraenk} bestellen",
+            "Ich hätte gerne {getraenk}",
+            "Ich möchte für Zimmer {zimmernummer} bestellen",
+            "Ich möchte für Zimmer {zimmernummer}",
+            "Ich möchte für Raum {zimmernummer} bestellen",
+            "Ich möchte für Raum {zimmernummer}",
+            "Ich möchte auf Zimmer {zimmernummer} bestellen",
+            "Ich möchte auf Zimmer {zimmernummer}",
+            "Ich möchte auf Raum {zimmernummer} bestellen",
+            "Ich möchte auf Raum {zimmernummer}",
+            "Ich will für Zimmer {zimmernummer} bestellen",
+            "Ich will für Zimmer {zimmernummer}",
+            "Ich will für Raum {zimmernummer} bestellen",
+            "Ich will für Raum {zimmernummer}",
+            "Ich will auf Zimmer {zimmernummer} bestellen",
+            "Ich will auf Zimmer {zimmernummer}",
+            "Ich will auf Raum {zimmernummer} bestellen",
+            "Ich will auf Raum {zimmernummer}",
+            "Ich mag für Zimmer {zimmernummer} bestellen",
+            "Ich mag für Zimmer {zimmernummer}",
+            "Ich mag für Raum {zimmernummer} bestellen",
+            "Ich mag für Raum {zimmernummer}",
+            "Ich mag auf Zimmer {zimmernummer} bestellen",
+            "Ich mag auf Zimmer {zimmernummer}",
+            "Ich mag auf Raum {zimmernummer} bestellen",
+            "Ich mag auf Raum {zimmernummer}",
+            "Ich hätte gerne für Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne für Zimmer {zimmernummer}",
+            "Ich hätte gerne für Raum {zimmernummer} bestellen",
+            "Ich hätte gerne für Raum {zimmernummer}",
+            "Ich hätte gerne auf Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne auf Zimmer {zimmernummer}",
+            "Ich hätte gerne auf Raum {zimmernummer} bestellen",
+            "Ich hätte gerne auf Raum {zimmernummer}",
+            "Ich möchte {gericht} für Zimmer {zimmernummer} bestellen",
+            "Ich möchte {gericht} für Zimmer {zimmernummer}",
+            "Ich möchte {gericht} für Raum {zimmernummer} bestellen",
+            "Ich möchte {gericht} für Raum {zimmernummer}",
+            "Ich möchte {gericht} auf Zimmer {zimmernummer} bestellen",
+            "Ich möchte {gericht} auf Zimmer {zimmernummer}",
+            "Ich möchte {gericht} auf Raum {zimmernummer} bestellen",
+            "Ich möchte {gericht} auf Raum {zimmernummer}",
+            "Ich möchte {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich möchte {getraenk} für Zimmer {zimmernummer}",
+            "Ich möchte {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich möchte {getraenk} für Raum {zimmernummer}",
+            "Ich möchte {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich möchte {getraenk} auf Zimmer {zimmernummer}",
+            "Ich möchte {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich möchte {getraenk} auf Raum {zimmernummer}",
+            "Ich will {gericht} für Zimmer {zimmernummer} bestellen",
+            "Ich will {gericht} für Zimmer {zimmernummer}",
+            "Ich will {gericht} für Raum {zimmernummer} bestellen",
+            "Ich will {gericht} für Raum {zimmernummer}",
+            "Ich will {gericht} auf Zimmer {zimmernummer} bestellen",
+            "Ich will {gericht} auf Zimmer {zimmernummer}",
+            "Ich will {gericht} auf Raum {zimmernummer} bestellen",
+            "Ich will {gericht} auf Raum {zimmernummer}",
+            "Ich will {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich will {getraenk} für Zimmer {zimmernummer}",
+            "Ich will {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich will {getraenk} für Raum {zimmernummer}",
+            "Ich will {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich will {getraenk} auf Zimmer {zimmernummer}",
+            "Ich will {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich will {getraenk} auf Raum {zimmernummer}",
+            "Ich mag {gericht} für Zimmer {zimmernummer} bestellen",
+            "Ich mag {gericht} für Zimmer {zimmernummer}",
+            "Ich mag {gericht} für Raum {zimmernummer} bestellen",
+            "Ich mag {gericht} für Raum {zimmernummer}",
+            "Ich mag {gericht} auf Zimmer {zimmernummer} bestellen",
+            "Ich mag {gericht} auf Zimmer {zimmernummer}",
+            "Ich mag {gericht} auf Raum {zimmernummer} bestellen",
+            "Ich mag {gericht} auf Raum {zimmernummer}",
+            "Ich mag {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich mag {getraenk} für Zimmer {zimmernummer}",
+            "Ich mag {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich mag {getraenk} für Raum {zimmernummer}",
+            "Ich mag {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich mag {getraenk} auf Zimmer {zimmernummer}",
+            "Ich mag {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich mag {getraenk} auf Raum {zimmernummer}",
+            "Ich hätte gerne {gericht} für Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} für Zimmer {zimmernummer}",
+            "Ich hätte gerne {gericht} für Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} für Raum {zimmernummer}",
+            "Ich hätte gerne {gericht} auf Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} auf Zimmer {zimmernummer}",
+            "Ich hätte gerne {gericht} auf Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {gericht} auf Raum {zimmernummer}",
+            "Ich hätte gerne {getraenk} für Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {getraenk} für Zimmer {zimmernummer}",
+            "Ich hätte gerne {getraenk} für Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {getraenk} für Raum {zimmernummer}",
+            "Ich hätte gerne {getraenk} auf Zimmer {zimmernummer} bestellen",
+            "Ich hätte gerne {getraenk} auf Zimmer {zimmernummer}",
+            "Ich hätte gerne {getraenk} auf Raum {zimmernummer} bestellen",
+            "Ich hätte gerne {getraenk} auf Raum {zimmernummer}",
+            "Ich möchte {gericht} und {getraenk} bestellen",
+            "Ich möchte {gericht} und {getraenk}",
+            "Ich will {gericht} und {getraenk} bestellen",
+            "Ich will {gericht} und {getraenk}",
+            "Ich mag {gericht} und {getraenk} bestellen",
+            "Ich mag {gericht} und {getraenk}",
+            "Ich hätte gerne {gericht} und {getraenk} bestellen",
+            "Ich hätte gerne {gericht} und {getraenk}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "nichts",
+                "synonyms": [
+                  "keins von beiden",
+                  "weder noch",
+                  "nein",
+                  "nix"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "wasser",
+                "synonyms": [
+                  "leitungswasser",
+                  "stilles wasser"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "cola",
+                "synonyms": [
+                  "coca cola"
+                ]
+              }
+            }
+          ],
+          "name": "GETRAENK"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "nichts",
+                "synonyms": [
+                  "keins von beiden",
+                  "weder noch",
+                  "nix",
+                  "nein"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "spagetti mit tomatensauce",
+                "synonyms": [
+                  "spagetti"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "maultaschen mit kartoffelsalat",
+                "synonyms": [
+                  "maultaschen"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "schnitzel mit pommes",
+                "synonyms": [
+                  "schnitzel"
+                ]
+              }
+            }
+          ],
+          "name": "GERICHT"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "BestellungIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "gericht",
+              "type": "GERICHT",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.969627196217.201102003986"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.228888816391.1152453385045.995272893629"
+                }
+              ]
+            },
+            {
+              "name": "getraenk",
+              "type": "GETRAENK",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.969627196217.539794197301"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.228888816391.888996299925.660336962093"
+                }
+              ]
+            },
+            {
+              "name": "zimmernummer",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.969627196217.265381919583"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.1283374693551.1198316192047.10326812269",
+                  "value": "0"
+                }
+              ]
+            }
+          ],
+          "delegationStrategy": "ALWAYS"
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.969627196217.201102003986",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "okay. zu essen haben wir schnitzel mit pommes, maultaschen mit kartoffelsalat und spagetti mit tomatensauce. was möchtest du essen?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.969627196217.539794197301",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "okay. zu trinken haben wir cola und wasser. was möchtest du trinken?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.969627196217.265381919583",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "notiert. zu welchem zimmer sollen wir deine bestellung liefern?"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.988938842742",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "ist das korrekt?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.228888816391.1152453385045.995272893629",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": " zu essen haben wir schnitzel mit pommes, maultaschen mit kartoffelsalat und spagetti mit tomatensauce. was möchtest du essen?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.228888816391.888996299925.660336962093",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "zu trinken haben wir cola und wasser. was möchtest du trinken?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1283374693551.1198316192047.10326812269",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "wie lautet deine zimmernummer?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "42"
+}

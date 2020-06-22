@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Setup</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="setup">Setup</h1>
+<h2 id="hinweis">Hinweis</h2>
+<ul>
+<li>Die Anleitung bezieht sich auf einen Computer mit Windows 10</li>
+<li>Die Versionsnummern beziehen sich auf die beim Prototyp verwendeten Versionen</li>
+</ul>
+<h2 id="anforderungen">Anforderungen</h2>
+<ul>
+<li><code>OpenJDK 13.0.2</code> und <code>Node.JS (Version 12.15.0)</code> mit <code>NPM (Version 6.13.4)</code> müssen installiert sein</li>
+<li>Entwicklungsumgebung, wie beispielsweise IntelliJ, muss installiert sein</li>
+<li>Bei <code>ngrok.com</code> muss ein Account angelegt und die Software muss heruntergealden werden</li>
+<li>Bei der Amazon Developer Console muss ein Account angelegt werden und das <code>Alexa Service Kit Command Line Interface (ASK CLI Version 1.7.23)</code> muss installierst und initialisiert werden</li>
+<li>GIT muss installiert sein</li>
+</ul>
+<h2 id="vorbereitung">Vorbereitung</h2>
+<p>Den Ordner <code>camunda-spring-boot</code> mit IntelliJ öffnen. Es handel sich dabei um ein Maven-Projekt. Alle erforderlichen Imports importieren und die<code>Open JDK 13 JRE</code> zum Ausführen des Codes konfigurieren. Anschließend kann die Spring-Boot-Applikation gestartet werden.</p>
+<p>Im Ordner <code>external</code> die PowerShell öffnen und den Befehl <code>npm install</code> ausführen.</p>
+<p>In der Alexa Developer Console (<a href="http://developer.amazon.com/alexa/console/ask">developer.amazon.com/alexa/console/ask</a>) müssen fünf custom Skills (alexa-hosted) angelegt werden. Diese können den gleichen Namen wie die Skills im Ordner <code>alexa-skills</code> haben.</p>
+<p>Nach dem Erstellen der Skills kann im JSON Editor des jeweiligen Skills die Datei aus dem Ordner <code>thesis-prototyp/alexa-skills/[skill-name]/models/de_DE.json</code> kopiert werden. Anschließend auf &quot;save model&quot; und dann auf &quot;build model&quot; klicken.  Dann zum &quot;code&quot;-Reiter wechseln. Die Datei aus dem Ordner <code>thesis-prototyp/alexa-skills/[skill-name]/lambda/lambda_function.py</code> kopieren und bei Code einfügen. Anschließend auf &quot;save&quot; und &quot;deploy&quot; klicken.</p>
+<h2 id="benachrichtigungen-aktivieren">Benachrichtigungen aktivieren</h2>
+<p>Den Inhalt des Ordners <code>alexa-skills</code> löschen. Ein PowerShell Fenster in diesem Ordner öffnen und <code>ask clone</code> ausführen. Mit diesem Befehl alle zuvor angelegten Skills herunterladen.</p>
+<p>Um Benachrichtigungen zu ermöglichen, müssen die drei Skills &quot;aufgaben anna&quot;, &quot;aufgaben felix&quot; und &quot;aufgaben julian&quot; konfiguriert werden. Dafür in einem Editor die Datei <code>thesis-prototyp/alexa-skills/[skill-name]/skill.json</code> öffnen. Unterhalb von &quot;manifestVersion&quot; folgenden Code-Schnipsel einfügen:</p>
+<pre><code><code><div>&quot;manifestVersion&quot;: 1.0,
+&quot;permissions&quot; : [
+    {
+        &quot;name&quot;: &quot;alexa::devices:all:notificatoins:write&quot;
+    }
+],
+&quot;events&quot;: {
+    &quot;endpoint&quot;: {
+        &quot;uri&quot; &quot;arn:aws:lambda:.........&quot;
+    },
+    &quot;publications&quot;: {
+        {
+            &quot;eventName&quot;: &quot;AMAZON.MessageAlert.Activated&quot;
+        }
+    }
+}
+</div></code></code></pre>
+<p>Der Eintrag bei &quot;uri&quot; kann von</p>
+<pre><code><code><div>&quot;manifest&quot;: {
+    &quot;apis&quot;: {
+      &quot;custom&quot;: {
+        &quot;endpoint&quot;: {
+          &quot;uri&quot;: &quot;.......&quot;
+        },
+        &quot;interfaces&quot;: []
+      }
+    },
+</div></code></code></pre>
+<p>kopiert werden. Anschließend ein PowerShell Fenster öffnen und die Änderungen mit mit GIT stagen, commiten und pushen. Daraufhin den Befehl <code>ask deploy</code> für jeden der drei Skills ausführen. Anschließend zur Alexa Developer Console wechseln. Innerhalb der drei Skills im Reiter &quot;Build&quot; ganz unten &quot;Permissions&quot; auswählen und auf der entsprechenden Seite ganz unten die bei Alexa Skill Messaging die Alexa Client Id und das Alexa Client Secret kopieren und in die Datei <code>thesis-prototyp/external/external.js</code> an der entsprechenden Stelle einfügen.</p>
+<pre><code><code><div>const felixSkillSecret = {
+    'client_id': 'amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXX',
+    'client_secret': 'XXXXXXXXXXXXXXXXXXXXXX'
+}
+const annaSkillSecret = {
+    'client_id': 'amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXX',
+    'client_secret': 'XXXXXXXXXXXXXXXXXXXXXX'
+}
+const julianSkillSecret = {
+    'client_id': 'amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXX',
+    'client_secret': 'XXXXXXXXXXXXXXXXXXXXXX'
+}
+</div></code></code></pre>
+<p>Anschließend ein PowerShell-Fenster im Ordner <code>thesis-prototyp/external</code> öffnen und das Skript mit <code>node.exe external.js</code> starten. Das Skript abonniert darufhin vier verschiedene Themen und kann entsprechende Nachrichten an einzelne Skills versenden.</p>
+<h2 id="alles-starten">Alles starten</h2>
+<p>Die Spring-Boot Appliaktion starten.</p>
+<p>Den Installationsordner von ngrok öffnen. Ein PowerShell-Fenster öffnen und <code>ngrok.exe http 8080</code> eingeben. Damit wird ngrok gestartet. Die HTTPS-URL kopieren.</p>
+<p>Ein PowerShell-Fenster im Ordner <code>thesis-prototyp/alexa-skills</code> öffnen und <code>setup.ps1 [URL]</code> ausführen. Dieser speichert die URL in den einzelnen Skills.</p>
+<p>Nun kann mit Alexa kommuniziert werden und Benachrichtugnen werden verschickt. Das <code>thesis-prototyp/alexa-skills/test.ps1</code> Skript kann ausgeführt werden, um zu testen, ob alle Interaktionen funktionieren. Um die Nachrichten zu erhalten müssen auf dem entsprechenden Alexa-Gerät die Benachrichtigungen in den Skill Einstellungen aktiviert werden.</p>
+
+    </body>
+    </html>
